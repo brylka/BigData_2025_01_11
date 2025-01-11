@@ -64,6 +64,8 @@ class SimlpeOrchestrator:
         task.status = TaskStatus.COMPLETING                             # Zakończenie przetwarzania i ustawienie statusu na COMPLETING
         print(f"Zakończono przetwarzanie zadania: {task.task_id}")
 
+        self.processing_tasks.remove(task.task_id)                      # Usunięcie z zbioru przetwarzanych tasków
+
     def _get_peding_tasks(self) -> List[Task]:
         pending_task = []                               # Pusta lista na początek
         for task in self.tasks.values():
