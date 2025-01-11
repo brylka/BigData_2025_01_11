@@ -24,7 +24,7 @@ def get_weather_simple():
 def get_weather_by_station(station_id: str):
     return {
         "station_id": station_id,
-        "temperature": random.uniform(15,25),
+        "temperature": str(random.uniform(15,45)),
         "humidity": random.uniform(40, 80),
         "timestamp": datetime.now()
     }
