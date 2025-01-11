@@ -45,22 +45,18 @@ class SimlpeOrchestrator:
 
     async def process_tasks(self):
         while True:
-            pending_tasks = self._get_peding_tasks()
+            pending_tasks = self._get_peding_tasks()    # Pobranie listy z taskami ze statusem PENDING
             print(pending_tasks)
 
     def _get_peding_tasks(self) -> List[Task]:
-        pending_task = []
+        pending_task = []                               # Pusta lista na początek
         for task in self.tasks.values():
-            if task.status == TaskStatus.PENDING:
-                pending_task.append(task)
-
-        def sort_key(task):
-            return (task.priority.value, task.created_at)
-
-        pending_task.sort(key=sort_key, reverse=True)
-
-
-        return pending_task
+            if task.status == TaskStatus.PENDING:       # Wyszukujemy taski ze statusem PENDING
+                pending_task.append(task)               # Dodajemy taski do list
+        def sort_key(task):                                 # Dodatkowa metoda do posortowania
+            return (task.priority.value, task.created_at)   # zgodnie z priorytetem oraz czasem stworzenia
+        pending_task.sort(key=sort_key, reverse=True)       # Sortowanie
+        return pending_task                                 # Zwrócenie listy
 
 
 
