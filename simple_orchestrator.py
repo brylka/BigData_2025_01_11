@@ -32,6 +32,15 @@ class SimlpeOrchestrator:
         # Zbiór zadań aktualnie przetwarzanych
         self.processing_tasks: set = set()
 
+    def add_task(self, task_id: str, data: Dict, priority: TaskPriority = TaskPriority.MEDIUM):
+        task = Task(task_id, data, priority)
+        self.tasks[task_id] = task
+        print(f"Dodano zadanie: {task_id} z priorytetem {priority.name}")
+        return task_id
 
-# task = Task("test", {"pole1": 3, "pole2": "alamakota"})
-# print(task.priority)
+
+
+
+if __name__ == "__main__":
+    orchestrator = SimlpeOrchestrator()
+    orchestrator.add_task("test", {"pole1": "ala"})
