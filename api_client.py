@@ -27,3 +27,7 @@ else:
 # print(response.request.url)
 # print(response.request.headers)
 # print(response.request.body)
+
+
+#response = requests.get("http://127.0.0.1:8000/weather/?city=Toruń&format=xml")
+#print(response.text)
