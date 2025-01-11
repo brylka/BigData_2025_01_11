@@ -21,11 +21,11 @@ class Task:
         self.data = data                    # Dane wejściowe
         self.status = TaskStatus.PENDING    # Początkowy status
         self.priority = priority            # Priorytet zadania
-        self.createt_at = datetime.now()    # Odcisk czasu utworzenia zadania
+        self.created_at = datetime.now()    # Odcisk czasu utworzenia zadania
         self.error = None                   # Miejsce na przechowywanie ewentualnych błędów
 
 
-class SimlpeOrchestarator:
+class SimlpeOrchestrator:
     def __init__(self):
         # Słownik przechowujący wszystkie zadania
         self.tasks: Dict[str, Task] = {}
