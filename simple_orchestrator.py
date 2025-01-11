@@ -60,7 +60,7 @@ class SimlpeOrchestrator:
             measurment = task.data
             if measurment.get("temperature") > 30:                       # Logika biznesowa - sprawdzenie temp
                 print(f"Wykryto wysoką temperaturę: {measurment['temperature']} 'C")    # Ale może być dodanie do bazy danych
-            #await asyncio.sleep(2)
+            await asyncio.sleep(2)
 
             task.status = TaskStatus.COMPLETING                             # Zakończenie przetwarzania i ustawienie statusu na COMPLETING
             print(f"Zakończono przetwarzanie zadania: {task.task_id}")
@@ -110,6 +110,13 @@ async def main():
          },
         TaskPriority.HIGH
     )
+
+    print(orchestrator.get_task_status(task_id))
+    await asyncio.sleep(1)
+    print(orchestrator.get_task_status(task_id))
+    await asyncio.sleep(1)
+    print(orchestrator.get_task_status(task_id))
+
 
 
 
