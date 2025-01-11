@@ -114,7 +114,7 @@ async def main():
     print(orchestrator.get_task_status(task_id))
     await asyncio.sleep(1)
     print(orchestrator.get_task_status(task_id))
-    await asyncio.sleep(1)
+    await asyncio.sleep(2)
     print(orchestrator.get_task_status(task_id))
 
 
