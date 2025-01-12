@@ -19,7 +19,7 @@ class WeatherStationMonitor:
 
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 
-            for station_id in self.monitored_stations
+            for station_id in self.monitored_stations:
                 job = self.queue.enqueue(
                     fetch_weather_data,
                     station_id,
@@ -35,3 +35,5 @@ if __name__ == "__main__":
 
     monitor.add_station("STACJA001")
     monitor.add_station("STACJA002")
+
+    monitor.start_monitoring()
