@@ -1,6 +1,7 @@
 from confluent_kafka import Producer
 from datetime import datetime
 import json
+import time
 
 class WeatherStationMonitor:
     def __init__(self):
@@ -38,6 +39,8 @@ class WeatherStationMonitor:
                 )
                 print(f"Wysłano zadanie dla stacji: {station_id}")
 
+            self.producer.flush()
+            time.sleep(60)
 
 
 if __name__ == "__main__":
@@ -46,4 +49,4 @@ if __name__ == "__main__":
     monitor.add_station("STACJA001")
     monitor.add_station("STACJA002")
 
-    #monitor.start_monitoring()
+    monitor.start_monitoring()
