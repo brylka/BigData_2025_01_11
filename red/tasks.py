@@ -1,6 +1,9 @@
 import requests
+from redis import Redis
 
 def fetch_weather_data(station_id):
+
+    redis_conn = Redis()
 
     try:
         print(f"Pobieranie danych dla stacji {station_id}...")
@@ -13,6 +16,8 @@ def fetch_weather_data(station_id):
 
             if temp > 30:
                 print(f"Wysoka temperatura {temp}'C na stacji {station_id}")
+
+                redis_conn.lpush(f"temps:{station_id}", temp)
             return data
 
         else:
